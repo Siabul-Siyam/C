@@ -1,0 +1,25 @@
+// Online C compiler to run C program online
+#include <stdio.h>
+#include <math.h>
+#include<stdlib.h>
+
+int main() {
+    // Write C code here
+   int a, b, quocient= 0, reminder = 0;
+   scanf("%d %d", &a , &b);
+   
+   for(int r = 0; r< abs(b); ++r )
+   {
+      int q = (a - r) / b;
+       if (a == b * q + r)
+       {
+           quocient = q;
+           reminder = r;
+           break;
+       }
+   }
+   
+   printf("%d %d\n", quocient , reminder);
+
+    return 0;
+}
