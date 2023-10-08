@@ -1,0 +1,54 @@
+#include<stdio.h>
+#include<string.h>
+#include<math.h>
+int main(){
+    
+char str[50];
+int store = 0;
+ int sum = 0;
+while(1)
+{
+    
+    if (fgets(str, sizeof(str), stdin) == NULL) {
+            break; // Exit the loop on end of input
+        }
+
+        // Remove the newline character if present
+        size_t len = strlen(str);
+        if (len > 0 && str[len - 1] == '\n') {
+            str[len - 1] = '\0';
+        }
+
+        if (strcmp(str, "caw caw") == 0) {
+            printf("%d\n", sum);
+            break; // Exit the loop if the input is "cow cow"
+        }
+
+
+for(int i = 0; i<3; i++){
+    
+    if(str[i]== '-'){
+        str[i] = 0;
+    }
+    else if(str[i] == '*')
+    {
+        str[i] = 1;
+    }
+    
+    store = store * 10 + str[i];
+    
+}
+    int reminder = store;
+    for(int i = 0; i< 3; i++){
+        
+        int quotient = reminder / 10;
+         reminder = reminder % 10;
+         
+        sum += (pow(2,i) * reminder);
+        reminder = quotient;
+    }
+
+}
+
+    return 0 ;
+}
